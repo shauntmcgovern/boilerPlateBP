@@ -16,12 +16,12 @@ export class Login extends React.Component {
   render () {
     return (
       <div>
-        <h1 className="page-title">Todo App</h1>
+        <h1 className="page-title">Boiler Plate FireBase</h1>
 
         <div className="row">
           <div className="columns small-centered small-10 medium-6 large-4">
             <div className="callout callout-auth">
-              <h3>Login</h3>
+              <h3>LOGIN</h3>
               <p>
                 Login with GitHub account below.
               </p>
