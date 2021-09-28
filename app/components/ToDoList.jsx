@@ -30,4 +30,4 @@ export class ToDoList extends ReactBase.Component
 };
 
 export default connect((state) => {return state;}) 
-//(ToDoList);
+(ToDoList);
