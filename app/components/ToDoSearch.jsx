@@ -1,15 +1,15 @@
-var React = require('react');
+var ReactBase = require('react');
 var {connect} = require('react-redux');
-var actions = require('actions');
+var actionToBeCompleted = require('actions');
 
-export class TodoSearch extends React.Component {
+export class ToDoSearch extends ReactBase.Component {
   render () {
     var {dispatch, showCompleted, searchText} = this.props;
 
     return (
       <div className="container__header">
         <div>
-          <input type="search" ref="searchText" placeholder="Search todos" value={searchText} onChange={() => {
+          <input type="search" ref="searchText" placeholder="Search toDos" value={searchText} onChange={() => {
               var searchText = this.refs.searchText.value;
               dispatch(actions.setSearchText(searchText));
             }}/>
@@ -19,7 +19,7 @@ export class TodoSearch extends React.Component {
             <input type="checkbox" ref="showCompleted" checked={showCompleted} onChange={() => {
                 dispatch(actions.toggleShowCompleted());
               }}/>
-            Show completed todos
+            Show completed toDos
           </label>
         </div>
       </div>
@@ -34,4 +34,4 @@ export default connect(
       searchText: state.searchText
     }
   }
-)(TodoSearch);
+)(ToDoSearch);
