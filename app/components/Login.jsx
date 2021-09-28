@@ -1,9 +1,9 @@
-import React from 'react';
+import ReactBase from 'react';
 import * as Redux from 'react-redux';
 
-import * as actions from 'actions';
+import * as actionToBeCompleted from 'actions';
 
-export class Login extends React.Component {
+export class Login extends ReactBase.Component {
   constructor (props) {
     super(props);
     this.onLogin = this.onLogin.bind(this);
@@ -11,7 +11,7 @@ export class Login extends React.Component {
   onLogin () {
     var {dispatch} = this.props;
 
-    dispatch(actions.startLogin());
+    dispatch(actionToBeCompleted.startLogin());
   }
   render () {
     return (
@@ -29,6 +29,7 @@ export class Login extends React.Component {
             </div>
           </div>
         </div>
+
       </div>
     );
   }
