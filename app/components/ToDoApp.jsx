@@ -4,14 +4,14 @@ import * as Redux from 'react-redux';
 import ToDoList from 'ToDoList'
 import AddToDo from 'AddToDo';
 import ToDoSearch from 'ToDoSearch';
-import * as actions from 'actions';
+import * as actionToBeCompleted from 'actions';
 
 export class ToDoApp extends ReactBase.Component {
   onLogout (e) {
     var {dispatch} = this.props;
     e.preventDefault();
 
-    dispatch(actions.startLogout());
+    dispatch(actionToBeCompleted.startLogout());
   }
   render () {
     return (
