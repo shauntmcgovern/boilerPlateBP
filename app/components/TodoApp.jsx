@@ -1,12 +1,12 @@
-import React from 'react';
+import ReactBase from 'react';
 import * as Redux from 'react-redux';
 
-import TodoList from 'TodoList'
-import AddTodo from 'AddTodo';
-import TodoSearch from 'TodoSearch';
+import ToDoList from 'ToDoList'
+import AddToDo from 'AddToDo';
+import ToDoSearch from 'ToDoSearch';
 import * as actions from 'actions';
 
-export class TodoApp extends React.Component {
+export class ToDoApp extends ReactBase.Component {
   onLogout (e) {
     var {dispatch} = this.props;
     e.preventDefault();
@@ -20,14 +20,14 @@ export class TodoApp extends React.Component {
           <a href="#" onClick={this.onLogout.bind(this)}>Logout</a>
         </div>
 
-        <h1 className="page-title">Todo App</h1>
+        <h1 className="page-title">ToDo App</h1>
 
         <div className="row">
           <div className="column small-centered small-11 medium-6 large-5">
             <div className="container">
-              <TodoSearch/>
-              <TodoList/>
-              <AddTodo/>
+              <ToDoSearch/>
+              <ToDoList/>
+              <AddToDo/>
             </div>
           </div>
         </div>
@@ -36,4 +36,4 @@ export class TodoApp extends React.Component {
   }
 };
 
-export default Redux.connect()(TodoApp);
+export default Redux.connect()(ToDoApp);
