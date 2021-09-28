@@ -3,36 +3,36 @@ var {connect} = require('react-redux');
 var momentAction = require('moment');
 var actionToBeCompleted = require('actions');
 
-export class Todo extends ReactBase.Component {
+export class ToDo extends ReactBase.Component {
   render () {
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
-    var todoClassName = completed ? 'todo todo-completed' : 'todo';
+    var todoClassName = completed ? 'toDo toDo-completed' : 'toDo';
     var renderDate = () => {
       var message = 'Created';
-      var timestamp = createdAt;
+      var timeStamp = createdAt;
 
       if (completed) {
         message = 'Completed ';
-        timestamp = completedAt;
+        timeStamp = completedAt;
       }
 
-      return message + momentAction.unix(timestamp).format('MMM Do YYYY @ h:mm a');
+      return message + momentAction.unix(timeStamp).format('MMM Do YYYY @ h:mm a');
     };
 
     return (
-      <div className={todoClassName} onClick={() => {
-          dispatch(actionToBeCompleted.startToggleTodo(id, !completed));
+      <div className={toDoClassName} onClick={() => {
+          dispatch(actionToBeCompleted.startToggleToDo(id, !completed));
         }}>
         <div>
           <input type="checkbox" checked={completed}>
         </div>
         <div>
           <p>{text}</p>
-          <p className="todo__subtext">{renderDate()}</p>
+          <p className="toDo__subtext">{renderDate()}</p>
         </div>
       </div>
     )
   }
 };
 
-export default connect()(Todo);
+export default connect()(ToDo);
