@@ -1,22 +1,22 @@
 var $ = require('jquery');
 
 module.exports = {
-  filterTodos: function (todos, showCompleted, searchText) {
-    var filteredTodos = todos;
+  filterToDos: function (toDos, showCompleted, searchText) {
+    var filteredToDos = toDos;
 
     // Filter by showCompleted
-    filteredTodos = filteredTodos.filter((todo) => {
-      return !todo.completed || showCompleted;
+    filteredToDos = filteredToDos.filter((toDo) => {
+      return !toDo.completed || showCompleted;
     });
 
     // Filter by searchText
-    filteredTodos = filteredTodos.filter((todo) => {
-      var text = todo.text.toLowerCase();
+    filteredToDos = filteredTodos.filter((toDo) => {
+      var text = toDo.text.toLowerCase();
       return searchText.length === 0 || text.indexOf(searchText.toLowerCase()) > -1;
     });
 
-    // Sort todos with non-completed first
-    filteredTodos.sort((a, b) => {
+    // Sort toDos with non-completed first
+    filteredToDos.sort((a, b) => {
       if (!a.completed && b.completed) {
         return -1;
       } else if (a.completed && !b.completed) {
@@ -26,6 +26,6 @@ module.exports = {
       }
     });
 
-    return filteredTodos;
+    return filteredToDos;
   }
 };
