@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import firebase, {firebaseRef, githubProvider} from 'app/firebase/';
+import fireBase, {firebaseRef, githubProvider} from 'app/fireBase/';
 
 export var setSearchText = (searchText) => {
   return {
@@ -22,7 +22,7 @@ export var addTodo = (todo) => {
   };
 };
 
-export var startAddTodo = (text) => {
+export var startAddToDo = (text) => {
   return (dispatch, getState) => {
     var todo = {
       text,
@@ -31,46 +31,46 @@ export var startAddTodo = (text) => {
       completedAt: null
     };
     var uid = getState().auth.uid;
-    var todoRef = firebaseRef.child(`users/${uid}/todos`).push(todo);
+    var toDoRef = fireBaseRef.child(`users/${uid}/toDos`).push(toDo);
 
-    return todoRef.then(() => {
-      dispatch(addTodo({
-        ...todo,
-        id: todoRef.key
+    return toDoRef.then(() => {
+      dispatch(addToDo({
+        ...toDo,
+        id: toDoRef.key
       }));
     });
   };
 };
 
-export var addTodos = (todos) => {
+export var addToDos = (toDos) => {
   return {
     type: 'ADD_TODOS',
-    todos
+    toDos
   };
 };
 
-export var startAddTodos = () => {
+export var startAddToDos = () => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
-    var todosRef = firebaseRef.child(`users/${uid}/todos`);
+    var toDosRef = fireBaseRef.child(`users/${uid}/toDos`);
 
-    return todosRef.once('value').then((snapshot) => {
+    return toDosRef.once('value').then((snapshot) => {
       var todos = snapshot.val() || {};
-      var parsedTodos = [];
+      var parsedToDos = [];
 
-      Object.keys(todos).forEach((todoId) => {
-        parsedTodos.push({
-          id: todoId,
-          ...todos[todoId]
+      Object.keys(todos).forEach((toDoId) => {
+        parsedToDos.push({
+          id: toDoId,
+          ...toDos[toDoId]
         });
       });
 
-      dispatch(addTodos(parsedTodos));
+      dispatch(addToDos(parsedToDos));
     });
   };
 };
 
-export var updateTodo = (id, updates) => {
+export var updateToDo = (id, updates) => {
   return {
     type: 'UPDATE_TODO',
     id,
@@ -78,17 +78,17 @@ export var updateTodo = (id, updates) => {
   };
 };
 
-export var startToggleTodo = (id, completed) => {
+export var startToggleToDo = (id, completed) => {
   return (dispatch, getState) => {
     var uid = getState().auth.uid;
-    var todoRef = firebaseRef.child(`users/${uid}/todos/${id}`);
+    var toDoRef = fireBaseRef.child(`users/${uid}/toDos/${id}`);
     var updates = {
       completed,
       completedAt: completed ? moment().unix() : null
     };
 
-    return todoRef.update(updates).then(() => {
-      dispatch(updateTodo(id, updates));
+    return toDoRef.update(updates).then(() => {
+      dispatch(updateToDo(id, updates));
     });
   };
 };
@@ -102,7 +102,7 @@ export var login = (uid) => {
 
 export var startLogin = () => {
   return (dispatch, getState) => {
-    return firebase.auth().signInWithPopup(githubProvider).then((result) => {
+    return fireBase.auth().signInWithPopUp(githubProvider).then((result) => {
       console.log('Auth worked!', result);
     }, (error) => {
       console.log('Unable to auth', error);
@@ -118,7 +118,7 @@ export var logout = () => {
 
 export var startLogout = () => {
   return (dispatch, getState) => {
-    return firebase.auth().signOut().then(() => {
+    return fireBase.auth().signOut().then(() => {
       console.log('Logged out!');
     });
   };
