@@ -34,4 +34,6 @@ export default connect(
       searchText: state.searchText
     }
   }
-)(ToDoSearch);
+)
+
+(ToDoSearch);
