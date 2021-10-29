@@ -1,12 +1,12 @@
-import ReactBase from 'react';
+import reactBase from 'react';
 import * as Redux from 'react-redux';
 
-import ToDoList from 'ToDoList'
-import AddToDo from 'AddToDo';
-import ToDoSearch from 'ToDoSearch';
+import toDoList from 'toDoList'
+import addToDo from 'addToDo';
+import toDoSearch from 'toDoSearch';
 import * as actionToBeCompleted from 'actions';
 
-export class ToDoApp extends ReactBase.Component {
+export class toDoApp extends reactBase.Component {
   onLogout (e) {
     var {dispatch} = this.props;
     e.preventDefault();
@@ -20,7 +20,7 @@ export class ToDoApp extends ReactBase.Component {
           <a href="#" onClick={this.onLogout.bind(this)}>Logout</a>
         </div>
 
-        <h1 className="page-title">ToDo App</h1>
+        <h1 className="page-title">to Do App</h1>
 
         <div className="row">
           <div className="column small-centered small-11 medium-6 large-5">
@@ -36,4 +36,4 @@ export class ToDoApp extends ReactBase.Component {
   }
 };
 
-export default Redux.connect()(ToDoApp);
+export default Redux.connect()(toDoApp);
