@@ -1,16 +1,16 @@
-var ReactBase = require('react');
+var reactBase = require('react');
 var {connect} = require('react-redux');
-import ToDo from 'ToDo';
-var ToDoAPI = require('ToDoAPI');
+import toDo from 'toDo';
+var toDoAPI = require('toDoAPI');
 
-export class ToDoList extends ReactBase.Component 
+export class toDoList extends reactBase.Component 
 {
   render () 
   {
     var {toDos, showCompleted, searchText} = this.props;
     var renderToDos = () => 
     {
-      var filteredToDos = ToDoAPI.filterToDos(toDos, showCompleted, searchText);
+      var filteredToDos = toDoAPI.filtertoDos(toDos, showCompleted, searchText);
       if (filteredToDos.length === 0) 
       {
         return (<p className="container__message">Nothing To Do</p>);
@@ -30,4 +30,4 @@ export class ToDoList extends ReactBase.Component
 };
 
 export default connect((state) => {return state;}) 
-(ToDoList);
+(toDoList);
