@@ -1,18 +1,18 @@
-var ReactBase = require('react');
+var reactBase = require('react');
 var {connect} = require('react-redux');
 var momentAction = require('moment');
 var actionToBeCompleted = require('actions');
 
-export class ToDo extends ReactBase.Component {
+export class toDo extends reactBase.Component {
   render () {
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
-    var todoClassName = completed ? 'toDo toDo-completed' : 'toDo';
+    var toDoClassName = completed ? 'toDo toDo-completed' : 'toDo';
     var renderDate = () => {
       var message = 'Created';
       var timeStamp = createdAt;
 
       if (completed) {
-        message = 'Completed ';
+        message = 'Completed';
         timeStamp = completedAt;
       }
 
@@ -35,4 +35,4 @@ export class ToDo extends ReactBase.Component {
   }
 };
 
-export default connect()(ToDo);
+export default connect()(toDo);
