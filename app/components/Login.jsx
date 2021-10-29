@@ -1,9 +1,9 @@
-import ReactBase from 'react';
+import reactBase from 'react';
 import * as Redux from 'react-redux';
 
 import * as actionToBeCompleted from 'actions';
 
-export class Login extends ReactBase.Component {
+export class Login extends reactBase.Component {
   constructor (props) {
     super(props);
     this.onLogin = this.onLogin.bind(this);
