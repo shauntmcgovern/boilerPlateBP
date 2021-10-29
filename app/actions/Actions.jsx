@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import fireBase, {firebaseRef, githubProvider} from 'app/fireBase/';
+import fireBase, {fireBaseRef, githubProvider} from 'app/fireBase/';
 
 export var setSearchText = (searchText) => {
   return {
