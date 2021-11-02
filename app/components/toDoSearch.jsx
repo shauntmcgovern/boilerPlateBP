@@ -19,7 +19,7 @@ export class toDoSearch extends reactBase.Component {
             <input type="checkbox" ref="showCompleted" checked={showCompleted} onChange={() => {
                 dispatch(actions.toggleShowCompleted());
               }}/>
-            Show completed To Dos
+            Show completed to Do's
           </label>
         </div>
       </div>
