@@ -1,18 +1,18 @@
 var expect = require('expect');
 
-var TodoAPI = require('TodoAPI');
+var toDoAPI = require('toDoAPI');
 
-describe('TodoAPI', () => {
+describe('toDoAPI', () => {
   beforeEach(() => {
-    localStorage.removeItem('todos');
+    localStorage.removeItem('toDos');
   });
 
   it('should exist', () => {
-    expect(TodoAPI).toExist();
+    expect(toDoAPI).toExist();
   });
 
-  describe('filterTodos', () => {
-    var todos = [{
+  describe('filterToDos', () => {
+    var toDos = [{
       id: 1,
       text: 'Some text here',
       completed: true
@@ -27,7 +27,7 @@ describe('TodoAPI', () => {
     }];
 
     it('should return all items if showCompleted is true', () => {
-      var filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      var filteredTodos = toDoAPI.filterToDos(todos, true, '');
       expect(filteredTodos.length).toBe(3);
     });
 
