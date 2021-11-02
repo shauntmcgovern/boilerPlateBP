@@ -10,20 +10,20 @@ export class toDoList extends reactBase.Component
     var {toDos, showCompleted, searchText} = this.props;
     var renderToDos = () => 
     {
-      var filteredToDos = toDoAPI.filtertoDos(toDos, showCompleted, searchText);
+      var filteredToDos = toDoAPI.filterToDos(toDos, showCompleted, searchText);
       if (filteredToDos.length === 0) 
       {
-        return (<p className="container__message">Nothing To Do</p>);
+        return (<p className="container__message">Nothing to Do</p>);
       }
       return filteredToDos.map((toDo) => 
       {
-        return (<ToDo key={toDo.id} {...toDo}/>);
+        return (<toDo key={toDo.id} {...toDo}/>);
       });
     };
 
     return (
       <div>
-        {renderTodos()}
+        {renderToDos()}
       </div>
     )
   }
