@@ -1,4 +1,4 @@
-var uuid = require('node-uuid');
+var uUID = require('node-uUID');
 var moment = require('moment');
 
 export var searchTextReducer = (state = '', action) => {
@@ -19,28 +19,28 @@ export var showCompletedReducer = (state = false, action) => {
   }
 };
 
-export var todosReducer = (state = [], action) => {
+export var toDosReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
         ...state,
-        action.todo
+        action.toDo
       ];
     case 'UPDATE_TODO':
-      return state.map((todo) => {
-        if (todo.id === action.id) {
+      return state.map((toDo) => {
+        if (toDo.id === action.id) {
           return {
-            ...todo,
+            ...toDo,
             ...action.updates
           };
         } else {
-          return todo;
+          return toDo;
         }
       });
     case 'ADD_TODOS':
       return [
         ...state,
-        ...action.todos
+        ...action.toDos
       ];
     case 'LOGOUT':
       return [];
@@ -53,7 +53,7 @@ export var authReducer = (state = {}, action) => {
   switch (action.type) {
     case 'LOGIN':
       return {
-        uid: action.uid
+        UID: action.UID
       };
     case 'LOGOUT':
       return {};
