@@ -7,7 +7,7 @@ export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
     searchText: searchTextReducer,
     showCompleted: showCompletedReducer,
-    todos: todosReducer,
+    toDos: toDosReducer,
     auth: authReducer
   });
 
