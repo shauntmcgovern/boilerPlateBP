@@ -93,10 +93,10 @@ export var startToggleToDo = (id, completed) => {
   };
 };
 
-export var login = (uid) => {
+export var Login = (UID) => {
   return {
     type: 'LOGIN',
-    uid
+    UID
   };
 };
 
@@ -110,7 +110,7 @@ export var startLogin = () => {
   };
 };
 
-export var logout = () => {
+export var Logout = () => {
   return {
     type: 'LOGOUT'
   };
