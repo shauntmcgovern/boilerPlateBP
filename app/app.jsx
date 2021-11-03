@@ -5,14 +5,14 @@ var {hashHistory} = require('react-router');
 
 var actions = require('actions');
 var store = require('configureStore').configure();
-import firebase from 'app/firebase/';
+import fireBase from 'app/fireBase/';
 import router from 'app/router/';
 
-firebase.auth().onAuthStateChanged((user) => {
+fireBase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login(user.uid));
-    store.dispatch(actions.startAddTodos());
-    hashHistory.push('/todos');
+    store.dispatch(actions.startAddToDos());
+    hashHistory.push('/toDos');
   } else {
     store.dispatch(actions.logout());
     hashHistory.push('/');
