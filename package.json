@@ -9,7 +9,7 @@
     "start": "npm run build && node server.js"
   },
             //Andrew Mead
-  "author": "Found it online with W project website through Wired",
+  "author": "Found an online project and doing CamelCase",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.9.1",
