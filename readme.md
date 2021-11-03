@@ -1,1 +1,1 @@
-BoilerPlate React App
+boilerPlateBP React App
