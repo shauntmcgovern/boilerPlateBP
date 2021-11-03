@@ -8,7 +8,7 @@
     "build": "webpack",
     "start": "npm run build && node server.js"
   },
-  "author": "Andrew Mead",
+  "author": "Found it online with W project website through Wired",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.9.1",
