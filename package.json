@@ -1,3 +1,5 @@
+//Shaun Terence McGovern
+
 {
   "name": "boilerplate",
   "version": "1.0.0",
@@ -8,7 +10,7 @@
     "build": "webpack",
     "start": "npm run build && node server.js"
   },
-            //Andrew Mead
+  
   "author": "Found an online project and doing CamelCase",
   "license": "MIT",
   "dependencies": {
