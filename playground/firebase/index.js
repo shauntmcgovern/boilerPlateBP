@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+import fireBase from 'fireBase';
 
 var config = {
   apiKey: "AIzaSyD_9fsTH8TiSdhYGD_4mzGbzwDxA7vW5w0",
@@ -6,32 +6,32 @@ var config = {
   databaseURL: "https://mead-todo-app-23821.firebaseio.com",
   storageBucket: "mead-todo-app-23821.appspot.com",
 };
-firebase.initializeApp(config);
+fireBase.initializeApp(config);
 
-var firebaseRef = firebase.database().ref();
+var fireBaseRef = fireBase.database().ref();
 
-firebaseRef.set({
+fireBaseRef.set({
   app: {
     name: 'Todo App',
     version: '1.0.0'
   },
   isRunning: true,
   user: {
-    name: 'Andrew',
-    age: 25
+    name: 'YourNameIsShaun',
+    age: 35
   }
 });
 
-var todosRef = firebaseRef.child('todos');
+var toDosRef = fireBaseRef.child('toDos');
 
-todosRef.on('child_added', (snapshot) => {
-  console.log('New todo added', snapshot.key, snapshot.val());
+toDosRef.on('child_added', (snapshot) => {
+  console.log('New toDo added', snapshot.key, snapshot.val());
 });
 
-todosRef.push({
-  text: 'Todo 1'
+toDosRef.push({
+  text: 'ToDo 1'
 });
 
-todosRef.push({
-  text: 'Todo 2'
+toDosRef.push({
+  text: 'ToDo 2'
 });
